@@ -1,0 +1,12 @@
+# Compiled executables (Windows)
+*.exe
+
+# Compiled executables (Mac/Linux)
+workshop_log_example
+metric_log
+
+# Intermediate object files
+*.o
+
+# Editor configuration
+.vscode/
