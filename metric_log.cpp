@@ -17,9 +17,19 @@ using namespace std;
  *
  * Operations:
  * [Complete in Part E: describe add(value).]
+ * We can use this operation to add a new value to the log. It returns false when the log has no remaining capacity.
+ * 
  * [Complete in Part E: describe get(index) and its precondition.]
+ * We can use to retrieve a value at a specific index in the log. 
+ * The precondition is that the index must be between 0 and count - 1.
+ * 
  * [Complete in Part E: describe contains(target).]
+ * Target is a value that we want to check if it exists in the log. The contains operation returns true if the 
+ * target value exists in the log, and false otherwise.
+ * 
  * [Complete in Part E: describe size() and isEmpty().]
+ * The fuction size() returns the number of values that are stored in the log.
+ * isEmpty() returns true if the log has no stored values, and false otherwise.
  */
 
 template <typename T>
@@ -91,6 +101,7 @@ bool MetricLog<T>::contains(const T& target) const
 
 int main()
 {
+    cout << boolalpha;
     MetricLog<int> waitlistCounts;
 
     waitlistCounts.add(6);
@@ -104,9 +115,17 @@ int main()
     // ===== Do not resolve these TODOs yet (Part E) =====
 
     // TODO (Part E): Create a MetricLog<double> for session durations.
+    MetricLog<double> sessionDurations;
     // TODO (Part E): Add two dummy duration values to that log.
+    sessionDurations.add(2.9);
+    sessionDurations.add(3.2);
     // TODO (Part E): Use contains with one value that exists and one that does not exist.
+    bool hasDuration1 = sessionDurations.contains(2.9);
+    bool hasDuration2 = sessionDurations.contains(4.0);
     // TODO (Part E): Print descriptive English labels for all results.
+    cout << "First session duration: " << sessionDurations.get(0) << endl;
+    cout << "Duration exists: " << hasDuration1 << endl;
+    cout << "Other duration exists: " << hasDuration2 << endl;
 
     return 0;
 }
